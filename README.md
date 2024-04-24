@@ -2,8 +2,14 @@
 Espaço de trabalho utilizado para a confecção do Projeto proposto na matéria de MC322 - IC Unicamp.
 
 
-## Membros
-Bruno Falco
-Bruno Holanda
-Gustavo Taniguchi
-Luccas Bastos
+## Membros e RA
+Bruno Falco - RA: 000000
+
+Bruno Holanda - RA: 000000
+
+Gustavo Taniguchi - RA: 000000
+
+Luccas Bastos - RA: 240259
+
+## Descrição do Projeto
+Resumo do projeto
