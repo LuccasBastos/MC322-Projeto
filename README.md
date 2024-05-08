@@ -3,7 +3,7 @@ Espaço de trabalho utilizado para a confecção do Projeto proposto na matéria
 
 
 ## Membros e RA
-Bruno Falco - RA: 000000
+Bruno Falco Lin - RA: 250219
 
 Bruno Holanda - RA: 000000
 
