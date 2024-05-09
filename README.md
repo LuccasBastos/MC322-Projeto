@@ -7,7 +7,7 @@ Bruno Falco Lin - RA: 250219
 
 Bruno Holanda - RA: 000000
 
-Gustavo Taniguchi - RA: 000000
+Gustavo Andrade Taniguchi - RA: 243651
 
 Luccas Bastos - RA: 240259
 
