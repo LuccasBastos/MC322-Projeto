@@ -7,16 +7,17 @@ public class Campeonato {
 	ArrayList <Entidade> podio = new ArrayList<Entidade>();
 	ArrayList <Time> listaTimes = new ArrayList<Time>();
 
+	//Construtores
+	public Campeonato(String nome) {
+		this.nome = nome;
+	}
 	
 	public Campeonato(String nome, String premio) {
 		this.nome = nome;
 		this.premio = premio;
 	}
 	
-	public Campeonato(String nome) {
-		this.nome = nome;
-	}
-	
+	//Métodos
 	public void addTime(Time time){
 		listaTimes.add(time);
 	}
@@ -25,6 +26,7 @@ public class Campeonato {
 		listaTimes.remove(time);
 	}
 
+	//Getters & Setters
 	public String getNome() {
 		return nome;
 	}
@@ -49,6 +51,7 @@ public class Campeonato {
 		this.podio = podio;
 	}
 
+	// Método toString
 	@Override
 	public String toString() {
 		return "";
