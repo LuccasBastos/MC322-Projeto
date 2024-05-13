@@ -5,7 +5,7 @@ Espaço de trabalho utilizado para a confecção do Projeto proposto na matéria
 ## Membros e RA
 Bruno Falco Lin - RA: 250219
 
-Bruno Holanda - RA: 000000
+Bruno Cardoso Holanda - RA: 167542
 
 Gustavo Andrade Taniguchi - RA: 243651
 
