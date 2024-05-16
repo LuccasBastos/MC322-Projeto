@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class PontosCorridos extends MataMata {
 	ArrayList<Jogo> jogos = new ArrayList<Jogo>();
-	ArrayList<Time> tabela = new ArrayList<Time>();
+	ArrayList<Time> tabela = listaTimes;
 	ArrayList<Time> classificados = new ArrayList<Time>();
 	
 	//Construtores
@@ -19,22 +19,25 @@ public class PontosCorridos extends MataMata {
 	}
 	
 	//Métodos
-	public ArrayList<Time> mostrarTabela() {
+	public ArrayList<String> mostrarTabela() {
 		Collections.sort(tabela, Comparator.comparingInt(Time::getClassificacao));
-		return tabela;
+		ArrayList <String> branco = new ArrayList<String>();
+		for (int i = 0; i < tabela.size(); i++) {
+			branco.add("\n" + tabela.get(i).getClassificacao() + "ª posição: " + tabela.get(i).getEntidade().getNome());
+		}
+		return branco;
 	}
 	
-	public ArrayList<Time> classificados() {
+	public ArrayList<String> classificados() {
 		Collections.sort(tabela, Comparator.comparingInt(Time::getClassificacao));
-		ArrayList<Time> clas = new ArrayList<Time>();
-		for (int i = 0; i < 7; i++) {
-			clas.add(tabela.get(i));
+		ArrayList <String> branco = new ArrayList<String>();
+		for (int i = 0; i < 8; i++) {
+			branco.add("\n" + tabela.get(i).getClassificacao() + "ª posição: " + tabela.get(i).getEntidade().getNome());
 		}
-		return clas;
+		return branco;
 	}
 
 	//Método toString
-	@Override
 	public String toString() {
 		return "";
 	}

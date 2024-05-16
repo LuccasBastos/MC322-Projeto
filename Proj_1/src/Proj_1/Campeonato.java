@@ -52,7 +52,6 @@ public class Campeonato {
 	}
 
 	// Método toString
-	@Override
 	public String toString() {
 		return "";
 	}
