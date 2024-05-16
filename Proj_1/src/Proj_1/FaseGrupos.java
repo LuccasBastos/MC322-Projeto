@@ -24,7 +24,11 @@ public class FaseGrupos extends MataMata {
 	public ArrayList<String> mostrarGrupos(){
 		ArrayList <String> branco = new ArrayList<String>();
 		for (int i = 0; i < grupos.size(); i++) {
-			branco.add("\n" + grupos.get(i).getNome() + ": "+ grupos.get(i).timeGrp);
+			branco.add(grupos.get(i).getNome() + ": ");
+			for (int j = 0; j < grupos.get(i).timeGrp.size(); j++) {
+			branco.add(grupos.get(i).timeGrp.get(j).getEntidade().getNome());
+			}
+			branco.add("\n");
 		}
 		return branco;
 	}
