@@ -48,7 +48,7 @@ public class Main {
 
                             Entidade entAtleta = new Entidade(entidadeAtleta);
                             Atleta atleta = new Atleta(nomeAtleta, cpfAtleta, entAtleta, fotoAtleta, idAtleta, posicaoAtleta, raAtleta);
-                            System.out.println("Atleta cadastrado:\n" + atleta);
+                            System.out.println("\nAtleta cadastrado:\n" + atleta);
                             break;
 
                         case 2:
@@ -68,7 +68,7 @@ public class Main {
 
                             Entidade entTecnico = new Entidade(entidadeTecnico);
                             ComissaoTecnica comissaoTecnica = new ComissaoTecnica(nomeTecnico, cpfTecnico, entTecnico, fotoTecnico, cargoTecnico, esporteTecnico);
-                            System.out.println("Comissão Técnica cadastrada:\n" + comissaoTecnica);
+                            System.out.println("\nComissão Técnica cadastrada:\n" + comissaoTecnica);
                             break;
 
                         case 3:
@@ -88,7 +88,7 @@ public class Main {
 
                             Entidade entArbitro = new Entidade(entidadeArbitro);
                             Arbitragem arbitragem = new Arbitragem(nomeArbitro, cpfArbitro, entArbitro, fotoArbitro, nomeMesa);
-                            System.out.println("Arbitragem cadastrada:\n" + arbitragem);
+                            System.out.println("\nArbitragem cadastrada:\n" + arbitragem);
                             break;
                     }
                     break;

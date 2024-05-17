@@ -40,12 +40,14 @@ public class ComissaoTecnica extends Pessoa {
     
     @Override
     public String toString() {
-        return "\n############### \n"+
-               "Nome: " + nome + "\n" +
-               "CPF: " + cpf + "\n" +
-               "Entidade: " + entidade + "\n" +
-               "Foto: " + foto + "\n" +
-               "Cargo: " + cargo + "\n" +
-               "Esporte: " + esporte+ "\n############### \n";
+        return "\n###############\n" +
+            "Nome: " + nome + "\n" +
+            "CPF: " + cpf + "\n" +
+            "Entidade: " + entidade.getNome() + "\n" + // Chama toString() da entidade para obter apenas o nome
+            "Foto: " + foto + "\n" +
+            "Cargo: " + cargo + "\n" +
+            "Esporte: " + esporte + "\n" +
+            "###############\n";
     }
+
 }

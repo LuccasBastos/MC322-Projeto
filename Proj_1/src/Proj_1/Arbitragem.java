@@ -39,7 +39,7 @@ public class Arbitragem extends Pessoa {
         sb.append("\n###############\n");
         sb.append("Nome: ").append(nome).append("\n");
         sb.append("CPF: ").append(cpf).append("\n");
-        sb.append("Entidade: ").append(entidade).append("\n");
+        sb.append("Entidade: ").append(entidade.getNome()).append("\n"); // Chama toString() da entidade para obter apenas o nome
         sb.append("Foto: ").append(foto).append("\n");
         sb.append("Nome da Mesa: ");
         for (String nomeArbitro : nomeMesa) {
@@ -49,5 +49,6 @@ public class Arbitragem extends Pessoa {
         sb.append("\n###############\n");
         return sb.toString();
     }
+
     
 }

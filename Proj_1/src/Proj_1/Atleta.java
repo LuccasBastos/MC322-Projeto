@@ -45,13 +45,15 @@ public class Atleta extends Pessoa {
     
     @Override
     public String toString() {
-        return "\n############### \n"+
-                "Nome: " + nome + "\n" +
-               "CPF: " + cpf + "\n" +
-               "Entidade: " + entidade + "\n" +
-               "Foto: " + foto + "\n" +
-               "ID: " + id + "\n" +
-               "Posição: " + posicao + "\n" +
-               "RA: " + ra + "\n############### \n";
+        return "\n###############\n" +
+            "Nome: " + nome + "\n" +
+            "CPF: " + cpf + "\n" +
+            "Entidade: " + entidade.getNome() + "\n" + // Chama toString() da entidade para obter apenas o nome
+            "Foto: " + foto + "\n" +
+            "ID: " + id + "\n" +
+            "Posição: " + posicao + "\n" +
+            "RA: " + ra + "\n" +
+            "###############\n";
     }
+
 }
