@@ -36,6 +36,7 @@ public class Arbitragem extends Pessoa {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append("\n###############\n");
         sb.append("Nome: ").append(nome).append("\n");
         sb.append("CPF: ").append(cpf).append("\n");
         sb.append("Entidade: ").append(entidade).append("\n");
@@ -45,6 +46,8 @@ public class Arbitragem extends Pessoa {
             sb.append(nomeArbitro).append(", ");
         }
         sb.delete(sb.length() - 2, sb.length()); // Remover a vírgula extra no final
+        sb.append("\n###############\n");
         return sb.toString();
     }
+    
 }

@@ -45,12 +45,13 @@ public class Atleta extends Pessoa {
     
     @Override
     public String toString() {
-        return "Nome: " + nome + "\n" +
+        return "\n############### \n"+
+                "Nome: " + nome + "\n" +
                "CPF: " + cpf + "\n" +
                "Entidade: " + entidade + "\n" +
                "Foto: " + foto + "\n" +
                "ID: " + id + "\n" +
                "Posição: " + posicao + "\n" +
-               "RA: " + ra;
+               "RA: " + ra + "\n############### \n";
     }
 }

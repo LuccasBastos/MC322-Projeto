@@ -40,11 +40,12 @@ public class ComissaoTecnica extends Pessoa {
     
     @Override
     public String toString() {
-        return "Nome: " + nome + "\n" +
+        return "\n############### \n"+
+               "Nome: " + nome + "\n" +
                "CPF: " + cpf + "\n" +
                "Entidade: " + entidade + "\n" +
                "Foto: " + foto + "\n" +
                "Cargo: " + cargo + "\n" +
-               "Esporte: " + esporte;
+               "Esporte: " + esporte+ "\n############### \n";
     }
 }
