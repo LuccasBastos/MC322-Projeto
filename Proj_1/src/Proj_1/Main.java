@@ -22,6 +22,8 @@ public class Main {
             System.out.println("2. Criar Campeonato");
             System.out.println("3. Listar Entidades Cadastradas");
             System.out.println("4. Listar Pessoas Cadastradas");
+            System.out.println("5. Editar Esportes");
+            System.out.println("6. Editar Atletas");
             System.out.println("0. Sair");
             int escolha = teclado.nextInt();
             teclado.nextLine();
@@ -63,6 +65,10 @@ public class Main {
                 case 4:
                     listarPessoasCadastradas(); 
                     break;
+
+                case 5:
+                    editarEsportes(teclado);
+                    break
 
                 case 0:
                     System.out.println("Encerrando o programa.");
