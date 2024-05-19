@@ -8,13 +8,13 @@ public class Jogo {
 	private String local;
 	private String modalidade;
 	private Arbitragem arbitros;
-	ArrayList<integer> resultado = new ArrayList<integer>();
+	ArrayList<Integer> resultado = new ArrayList<Integer>();
 	private Atleta destaquePart;
-	ArrayList<integer> data = new ArrayList<integer>();
-	private Array<Time> confronto;
+	ArrayList<Integer> data = new ArrayList<Integer>();
+	private ArrayList<Time> confronto;
 	private Time vencedor;			//Adicionei a propriedade vencedor
 	
-	public Jogo (Campeonato tipo, String fase, String local, String modalidade, Arbitragem arbitros, Array<integer> resultado, Atleta destaquePart, Array<integer> data, Array<Time> confronto) {
+	public Jogo (Campeonato tipo, String fase, String local, String modalidade, Arbitragem arbitros, ArrayList<Integer> resultado, Atleta destaquePart, ArrayList<Integer> data, ArrayList<Time> confronto) {
 		this.tipo = tipo;
 		this.fase = fase;
 		this.local = local;
@@ -67,13 +67,13 @@ public class Jogo {
 		this.arbitros = arbitros;
 	}
 
-	public Array<integer> getResultado (){
+	public ArrayList<Integer> getResultado (){
 		return resultado;
 	}
 
 	public void setResultado(int time1, int time2){
-		this.resultado.add(time1);
-		this.resultado.add(time2);
+		this.resultado.set(1,time1);
+		this.resultado.set(2,time2);
 	}
 
 	public Atleta getDestaque (){
@@ -84,19 +84,19 @@ public class Jogo {
 		this.destaquePart = destaquePart;
 	}
 
-	public Array<integer> getData (){
+	public ArrayList<Integer> getData (){
 		return data;
 	}
 
-	public void setData(Array<integer> data){
+	public void setData(ArrayList<Integer> data){
 		this.data = data;
 	}
 
-	public Array<Time> getConfronto (){
+	public ArrayList<Time> getConfronto (){
 		return confronto;
 	}
 
-	public void setConfronto(Array<Time> confronto){
+	public void setConfronto(ArrayList<Time> confronto){
 		this.confronto = confronto;
 	}	
 
@@ -119,10 +119,10 @@ public class Jogo {
 			this.vencedor = this.confronto.get(0);
 			return vencedor;
 		}
-		else if(time1 = time2){
+		if(time1 == time2){
 			System.err.println("O confronto resultou em empate!");
 			return null;
-		}
+			}
 		else{
 			this.vencedor = this.confronto.get(1);
 			return vencedor;	
