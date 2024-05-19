@@ -68,6 +68,10 @@ public class Main {
                     editarEsportes(teclado);
                     break;
 
+                case 6:
+                    editarAtletas(teclado);
+                    break;
+
                 case 0:
                     System.out.println("Encerrando o programa.");
                     teclado.close();
@@ -356,9 +360,124 @@ public class Main {
                 
         }
     }
-/*
-    private static void editar atletas(){
+
+    private static void editarAtletas(Scanner teclado){
+        int escolhaentidade;
+        int qntAtletas;
+        Atleta atletaadicionado;
+        int escolhaAtleta;
+        Atleta atletaremovido;
+        String nomeAtleta;
         
+        System.out.println("Qual campeonato você vai editar?");
+        for (int i=0; i<campeonatosCadastrados.size(); i++){
+            System.out.println(i+"-"+campeonatosCadastrados.get(i).getNome());
+        }
+        int escolhaCamp = teclado.nextInt();
+        Campeonato camp = campeonatosCadastrados.get(escolhaCamp);
+    	teclado.nextLine();
+
+        System.out.println("O que deseja fazer?");
+        System.out.println("1-Adicionar Atletas");
+        System.out.println("2-Adicionar Titulares");
+        System.out.println("3-Remover Atletas");
+        System.out.println("4-Remover Titulares");
+
+        int escolhaAcao = teclado.nextInt(); 
+    	teclado.nextLine();
+
+        switch(escolhaAcao){
+            case 1:
+                System.out.println("A qual time serão adicionados atletas?");
+                for (int i=0; i<camp.getTimes().size();i++){
+                    System.out.println(i+"-"+camp.getTimes().get(i).getEntidade().getNome());
+                }
+                escolhaentidade = teclado.nextInt(); 
+                teclado.nextLine();
+                
+                System.out.println("Quantos atletas serão adicionados?");
+                qntAtletas = teclado.nextInt(); 
+                teclado.nextLine();
+                
+                for(int i = 0; i < qntAtletas; i++) {
+                    System.out.println("Qual o nome do atleta " + (i+1) + "?");
+                    nomeAtleta = teclado.nextLine();
+                    atletaadicionado = new Atleta(nomeAtleta, "000.000.000-00", camp.getTimes().get(escolhaentidade).getEntidade(), "foto", camp.getTimes().size(), "Nenhuma", "000000");
+                    camp.getTimes().get(escolhaentidade).addAtleta(atletaadicionado);
+                }
+                break;
+
+            case 2:
+                System.out.println("A qual time serão adicionados titulares?");
+                for (int i=0; i<camp.getTimes().size();i++){
+                    System.out.println(i+"-"+camp.getTimes().get(i).getEntidade().getNome());
+                }
+                escolhaentidade = teclado.nextInt(); 
+                teclado.nextLine();
+                
+                System.out.println("Quantos atletas serão adicionados?");
+                qntAtletas = teclado.nextInt(); 
+                teclado.nextLine();
+                
+                for(int i = 0; i < qntAtletas; i++) {
+                    System.out.println("Qual o nome do atleta " + (i+1) + "?");
+                    nomeAtleta = teclado.nextLine();
+                    atletaadicionado = new Atleta(nomeAtleta, "000.000.000-00", camp.getTimes().get(escolhaentidade).getEntidade(), "foto", camp.getTimes().size(), "Nenhuma", "000000");
+                    camp.getTimes().get(escolhaentidade).addTitular(atletaadicionado);
+                }
+                break;
+
+            case 3:
+                System.out.println("De qual time serão removidos atletas?");
+                for (int i=0; i<camp.getTimes().size();i++){
+                    System.out.println(i+"-"+camp.getTimes().get(i).getEntidade().getNome());
+                }
+                escolhaentidade = teclado.nextInt(); 
+                teclado.nextLine();
+                
+                System.out.println("Quantos atletas serão removidos? (" + camp.getTimes().get(escolhaentidade).getAtletas().size() + " atualmente)");
+                qntAtletas = teclado.nextInt(); 
+                teclado.nextLine();
+                
+                for(int i = 0; i < qntAtletas; i++) {
+                    System.out.println("Qual atleta será removido ?");
+                    System.out.println("Disponíveis: ");
+                    for (int k=0; k<camp.getTimes().get(escolhaentidade).getAtletas().size(); k++){
+                        System.out.println(k+"-"+camp.getTimes().get(escolhaentidade).getAtletas().get(k).obterNome());
+                    }
+                    escolhaAtleta = teclado.nextInt(); 
+                    teclado.nextLine();
+                    atletaremovido = camp.getTimes().get(escolhaentidade).getAtletas().get(escolhaAtleta);
+                    camp.getTimes().get(escolhaentidade).removeAtleta(atletaremovido);
+                }
+                break;
+
+            case 4:
+                System.out.println("De qual time serão removidos titulares?");
+                for (int i=0; i<camp.getTimes().size();i++){
+                    System.out.println(i+"-"+camp.getTimes().get(i).getEntidade().getNome());
+                }
+                escolhaentidade = teclado.nextInt(); 
+                teclado.nextLine();
+                
+                System.out.println("Quantos titulares serão removidos? (" + camp.getTimes().get(escolhaentidade).getTitulares().size() + " atualmente)");
+                qntAtletas = teclado.nextInt(); 
+                teclado.nextLine();
+                
+                for(int i = 0; i < qntAtletas; i++) {
+                    System.out.println("Qual titular será removido ?");
+                    System.out.println("Disponíveis: ");
+                    for (int k=0; k<camp.getTimes().get(escolhaentidade).getTitulares().size(); k++){
+                        System.out.println(k+"-"+camp.getTimes().get(escolhaentidade).getTitulares().get(k).obterNome());
+                    }
+                    escolhaAtleta = teclado.nextInt(); 
+                    teclado.nextLine();
+                    atletaremovido = camp.getTimes().get(escolhaentidade).getTitulares().get(escolhaAtleta);
+                    camp.getTimes().get(escolhaentidade).removeTitular(atletaremovido);
+                }
+                break;
+                
+        }
     }
-    */
+    
 }
