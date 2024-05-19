@@ -36,7 +36,7 @@ public class Jogo {
 	}
 
 	public String getFase(){
-		return tipo;
+		return fase;
 	}
 
 	public void setFase(String fase){
@@ -113,7 +113,7 @@ public class Jogo {
 				", Confronto: " + confronto);
 	}
 	
-	public Entidade defVencedor(int time1, int time2) {
+	public Time defVencedor(int time1, int time2) {
 		setResultado(time1, time2);
 		if(time1 > time2){
 			this.vencedor = this.confronto.get(0);
