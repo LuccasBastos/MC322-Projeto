@@ -1,4 +1,5 @@
 package Proj_1;
+
 import java.util.ArrayList;
 
 public class Entidade {
@@ -8,30 +9,30 @@ public class Entidade {
     private ArrayList<String> esportes;
     private Pessoa resp;
 
-    //Construtor "completo"
-    public Entidade(String nome, ArrayList<String> esportes, Pessoa resp){
+    // Construtor "completo"
+    public Entidade(String nome, ArrayList<String> esportes, Pessoa resp) {
         this.id = count++;
         this.nome = nome;
         this.esportes = esportes;
         this.resp = resp;
     }
 
-    //Construtor somente com nome da Entidade e responsável
-    public Entidade(String nome, Pessoa resp){
+    // Construtor somente com nome da Entidade e responsável
+    public Entidade(String nome, Pessoa resp) {
         this.id = count++;
         this.nome = nome;
         this.esportes = new ArrayList<>();
         this.resp = resp;
     }
 
-    //Construtor somente com nome da Entidade
-    public Entidade(String nome){
+    // Construtor somente com nome da Entidade
+    public Entidade(String nome) {
         this.id = count++;
         this.nome = nome;
         this.esportes = new ArrayList<>();
     }
 
-    //Getters and Setters
+    // Getters and Setters
     public String getNome() {
         return nome;
     }
@@ -56,24 +57,28 @@ public class Entidade {
         this.resp = resp;
     }
 
-    //Métodos
-    public boolean addEsporte(String esporte){
-        if (esportes.contains(esporte)){
+    // Métodos
+    public boolean addEsporte(String esporte) {
+        if (esportes.contains(esporte)) {
             return false;
-        }
-        else{
+        } else {
             esportes.add(esporte);
             return true;
         }
     }
 
-    public boolean removeEsporte(String esporte){
+    public boolean removeEsporte(String esporte) {
         if (esportes.contains(esporte)) {
             esportes.remove(esporte);
             return true;
-        }
-        else{
+        } else {
             return false;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Entidade [ID: " + id + ", Nome: " + nome + ", Esportes: " + esportes + 
+               ", Responsável: " + (resp != null ? resp.obterNome() : "Nenhum") + "]";
     }
 }
