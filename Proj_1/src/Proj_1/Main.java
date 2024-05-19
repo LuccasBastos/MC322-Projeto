@@ -8,7 +8,8 @@ import java.util.Scanner;
 public class Main {
     private static int count = 0;
     private static List<Entidade> entidadesCadastradas = new ArrayList<>();
-    private static List<Pessoa> pessoasCadastradas = new ArrayList<>(); 
+    private static List<Pessoa> pessoasCadastradas = new ArrayList<>();
+    private static List<Campeonato> campeonatosCadastrados = new ArrayList<>();
 
 
     public static void main(String[] args) throws InterruptedException {
@@ -188,6 +189,7 @@ public class Main {
                 }
 
                 System.out.println("A tabela de times é a seguinte: \n" + CampPC.mostrarTabela());
+                campeonatosCadastrados().add(campPC);
                 break;
 
                 case 2: // Fase de Grupos
@@ -247,6 +249,7 @@ public class Main {
                 }
             
                 System.out.println("Os grupos e seus respectivos times são: \n" + CampFG.mostrarGrupos());
+                campeonatosCadastrados().add(campFG);
                 break;
             default:
                 System.out.println("Escolha inválida.");
@@ -281,6 +284,48 @@ public class Main {
                 System.out.println(pessoa);
             }
         }
+    }
+
+    private static void editarEsportes(Scanner teclado){
+        System.out.println("Qual campeonato você vai editar?");
+        for (int i=0; i<campeonatosCadastrados.size(); i++){
+            System.out.println(i+"-"+campeonatosCadastrados.get(i).getNome);
+        }
+        escolhaCamp = teclado.nextInt();
+        camp = campeonatosCadastrados.get(escolhaCamp);
+    	teclado.nextLine();
+
+        System.out.println("O que deseja fazer?");
+        System.out.println("1-Adicionar esportes");
+        System.out.println("2-Remover esportes");
+
+        escolhaAcao = teclado.nextInt(); 
+    	teclado.nextLine();
+
+        switch(escolhaAcao){
+            case 1:
+                System.out.println("A qual entidade serão adicionados esportes?");
+                for (int i=0; i<camp.getTimes().size();i++){
+                    System.out.println(i+"-"+camp.getTimes().get(i).getEntidade().getNome());
+                }
+                escolhaentidade = teclado.nextInt(); 
+                teclado.nextLine();
+                
+                System.out.println("Quantos esportes serão adicionados?");
+                qntEsportes = teclado.nextInt(); 
+                teclado.nextLine();
+                
+                for(int i = 0; i < qntEsportes; i++) {
+                    System.out.println("Qual o nome do esporte " + (i+1) + "?");
+                    String nomeEsporte = teclado.nextLine();
+                    Camp.getTimes().get(escolhaentidade).getEntidade().addEsporte(nomeEsporte);
+                }
+                break;
+        }
+    }
+
+    private static void editar atletas(){
+        
     }
     
 }
