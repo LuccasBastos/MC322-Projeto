@@ -7,22 +7,22 @@ public class Entidade {
     private String nome;
     private int id;
     private ArrayList<String> esportes;
-    private Pessoa resp;
+    private String respNome; // Nome do responsável
 
     // Construtor "completo"
-    public Entidade(String nome, ArrayList<String> esportes, Pessoa resp) {
+    public Entidade(String nome, ArrayList<String> esportes, String respNome) {
         this.id = count++;
         this.nome = nome;
         this.esportes = esportes;
-        this.resp = resp;
+        this.respNome = respNome;
     }
 
     // Construtor somente com nome da Entidade e responsável
-    public Entidade(String nome, Pessoa resp) {
+    public Entidade(String nome, String respNome) {
         this.id = count++;
         this.nome = nome;
         this.esportes = new ArrayList<>();
-        this.resp = resp;
+        this.respNome = respNome;
     }
 
     // Construtor somente com nome da Entidade
@@ -45,16 +45,12 @@ public class Entidade {
         return esportes;
     }
 
-    public Pessoa getResp() {
-        return resp;
+    public String getRespNome() {
+        return respNome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public void setResp(Pessoa resp) {
-        this.resp = resp;
     }
 
     // Métodos
@@ -68,17 +64,12 @@ public class Entidade {
     }
 
     public boolean removeEsporte(String esporte) {
-        if (esportes.contains(esporte)) {
-            esportes.remove(esporte);
-            return true;
-        } else {
-            return false;
-        }
+        return esportes.remove(esporte);
     }
 
     @Override
     public String toString() {
         return "Entidade [ID: " + id + ", Nome: " + nome + ", Esportes: " + esportes + 
-               ", Responsável: " + (resp != null ? resp.obterNome() : "Nenhum") + "]";
+               ", Responsável: " + respNome + "]";
     }
 }
