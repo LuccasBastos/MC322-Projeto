@@ -11,7 +11,7 @@ public class MataMata extends Campeonato{
 	
 	//Métodos
 	public String addConfronto(Time timeA, Time timeB) {
-		return timeA.getNome() + " jogará contra " + timeB.getNome();
+		return timeA.getEntidade().getNome() + " jogará contra " + timeB.getEntidade().getNome();
 		/*
 		 * Jogo.confronto.add(timeA, timeB);
 		 */
@@ -21,7 +21,7 @@ public class MataMata extends Campeonato{
 		ArrayList<String> conf = new ArrayList<String>();
 		for (int i = 0; i < classificados.size()/2; i = 0) {
 			addConfronto(classificados.get(i),classificados.get(classificados.size()-1));
-			conf.add(i,classificados.get(i).getNome() + " jogará contra " + classificados.get(classificados.size()-1).getNome());
+			conf.add(i,classificados.get(i).getEntidade().getNome() + " jogará contra " + classificados.get(classificados.size()-1).getEntidade().getNome());
 			classificados.remove(i);
 			classificados.remove(classificados.size()-1);
 		}
@@ -29,7 +29,6 @@ public class MataMata extends Campeonato{
 	}
 
 	//Método toString
-	@Override
 	public String toString() {
 		return "O Mata Mata do Campeonato " + getNome() + "terá os seguintes jogos:\n" + jogos;
 	}

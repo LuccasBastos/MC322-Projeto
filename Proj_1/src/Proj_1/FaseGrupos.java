@@ -1,51 +1,36 @@
 package Proj_1;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Collections;
-
 
 public class FaseGrupos extends MataMata {
-	private String nomeGrupo, nome;
 	private int qntGrupos, qntTimes;
 	ArrayList<Jogo> jogos = new ArrayList<Jogo>();
-	ArrayList<ArrayList<Time>> grupos = new ArrayList<ArrayList<Time>>(); //Todos os grupos do campeonato 
+	ArrayList<Grupo> grupos = new ArrayList<Grupo>(); //Todos os grupos do campeonato
 	
 	//Construtores
 	public FaseGrupos(String nome) {
 		super(nome);
+		this.qntTimes = 4;
 	}
 	
 	//Métodos
-	public ArrayList<ArrayList<Time>> criarGrupos(int qntdGrupos, int qntTimes){
+	public ArrayList<Grupo> criarGrupos(int qntdGrupos){
 		setQntGrupos(qntdGrupos);
-		setQntTimes(qntTimes);
 		for (int i = 0; i < qntdGrupos; i++) {
-			ArrayList<Time> novoGrp = new ArrayList<Time>(i);
-			grupos.add(novoGrp);
-			for (int j = 0; j < qntTimes; j++) {
-				novoGrp.add(new Time(nome));
+				grupos.add(new Grupo());
 			}
+		return grupos;
+	}
+	
+	public ArrayList<String> mostrarGrupos(){
+		ArrayList <String> branco = new ArrayList<String>();
+		for (int i = 0; i < grupos.size(); i++) {
+			branco.add(grupos.get(i).getNome() + ": ");
+			for (int j = 0; j < grupos.get(i).timeGrp.size(); j++) {
+			branco.add(grupos.get(i).timeGrp.get(j).getEntidade().getNome());
+			}
+			branco.add("\n");
 		}
-		return grupos;
-	}
-	
-	public ArrayList<ArrayList<Time>> mostrarGrupos(){
-		return grupos;
-	}
-	
-	public ArrayList<ArrayList<Time>> classificacaoGrupo() {
-		for (int j = 0; j < grupos.size(); j++) {
-			Collections.sort(grupos.get(j), Comparator.comparingInt(Time::getClassificacao));
-		}
-		return grupos;
-	}
-	
-	public String getNomeGrupo() {
-		return nomeGrupo;
-	}
-
-	public void setNomeGrupo(String nomeGrupo) {
-		this.nomeGrupo = nomeGrupo;
+		return branco;
 	}
 	
 	public int getQntGrupos() {
@@ -61,11 +46,18 @@ public class FaseGrupos extends MataMata {
 	}
 	
 	public void setQntTimes(int qntTimes) {
-		this.qntTimes = qntTimes;
+		this.qntTimes = 4;
+	}
+	
+	public ArrayList<Grupo> getGrupos (){
+		return grupos;
+	}
+
+	public void setData(ArrayList<Grupo> grupos){
+		this.grupos = grupos;
 	}
 
 	//Método toString
-	@Override
 	public String toString() {
 		return "";
 	}
