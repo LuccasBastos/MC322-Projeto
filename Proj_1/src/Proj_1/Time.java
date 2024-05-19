@@ -38,12 +38,23 @@ public class Time {
         this.grupo = "Nenhum";
     }
 
-    //Construtor mínimo, somente com lista de atletas, esporte e entidade
+    //Construtor somente com lista de atletas, esporte e entidade
     public Time(ArrayList<Atleta> atletas, String esporte, Entidade entidade){
         this.atletas = atletas;
         this.titulares = new ArrayList<>();
         this.classificacao = 999;
         this.esporte = esporte;
+        this.entidade = entidade;
+        this.vitorias = 0;
+        this.derrotas = 0;
+        this.grupo = "Nenhum";
+    }
+
+    //Construtor somente com entidade
+    public Time(Entidade entidade){
+        this.atletas = new ArrayList<>();
+        this.titulares = new ArrayList<>();
+        this.classificacao = 999;
         this.entidade = entidade;
         this.vitorias = 0;
         this.derrotas = 0;
