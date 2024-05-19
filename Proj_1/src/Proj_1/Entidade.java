@@ -24,6 +24,14 @@ public class Entidade {
         this.resp = resp;
     }
 
+    //Construtor somente com nome da Entidade
+    public Entidade(String nome, Pessoa resp){
+        this.id = count++;
+        this.nome = nome;
+        this.esportes = new ArrayList<>();
+        this.resp = resp;
+    }
+
     //Getters and Setters
     public String getNome() {
         return nome;
