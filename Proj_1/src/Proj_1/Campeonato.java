@@ -47,6 +47,10 @@ public class Campeonato {
 		return podio;
 	}
 
+	public ArrayList<Time> getTimes() {
+		return listaTimes;
+	}
+
 	public void setPodio(ArrayList<Entidade> podio) {
 		this.podio = podio;
 	}

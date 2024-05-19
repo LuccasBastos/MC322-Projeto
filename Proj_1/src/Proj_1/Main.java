@@ -1,10 +1,13 @@
 package Proj_1;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+    private static int count = 0; // Variável estática para contar os IDs
+
     public static void main(String[] args) throws InterruptedException {
         Scanner teclado = new Scanner(System.in);
         List<String> tipoCamp = new ArrayList<>(Arrays.asList("Pontos corridos", "Fase de Grupo"));
@@ -13,13 +16,12 @@ public class Main {
             System.out.println("Escolha uma opção:");
             System.out.println("1. Cadastro");
             System.out.println("2. Criar Campeonato");
-            System.out.println("3. Sair");
+            System.out.println("0. Sair");
             int escolha = teclado.nextInt();
             teclado.nextLine();
 
             switch (escolha) {
                 case 1:
-                    // Cadastro
                     System.out.println("Escolha o tipo de cadastro:");
                     System.out.println("1. Atleta");
                     System.out.println("2. Comissão Técnica");
@@ -29,72 +31,72 @@ public class Main {
 
                     switch (tipoCadastro) {
                         case 1:
-                            // Cadastro de Atleta
-                            System.out.println("Digite o nome do Atleta:");
+                            System.out.println("Cadastro de Atleta");
+                            System.out.println("Nome:");
                             String nomeAtleta = teclado.nextLine();
-                            System.out.println("Digite o CPF do Atleta:");
+                            System.out.println("CPF:");
                             String cpfAtleta = teclado.nextLine();
-                            System.out.println("Digite a Entidade do Atleta:");
-                            String entidadeAtleta = teclado.nextLine();
-                            System.out.println("Digite o caminho da Foto do Atleta:");
+                            System.out.println("Foto:");
                             String fotoAtleta = teclado.nextLine();
-                            System.out.println("Digite o ID do Atleta:");
-                            int idAtleta = teclado.nextInt();
-                            teclado.nextLine();
-                            System.out.println("Digite a Posição do Atleta:");
+                            System.out.println("Entidade:");
+                            String entidadeAtleta = teclado.nextLine();
+                            System.out.println("Posição:");
                             String posicaoAtleta = teclado.nextLine();
-                            System.out.println("Digite o RA do Atleta:");
+                            System.out.println("RA:");
                             String raAtleta = teclado.nextLine();
 
-                            Entidade entAtleta = new Entidade(entidadeAtleta);
-                            Atleta atleta = new Atleta(nomeAtleta, cpfAtleta, entAtleta, fotoAtleta, idAtleta, posicaoAtleta, raAtleta);
-                            System.out.println("\nAtleta cadastrado:\n" + atleta);
+                            Entidade entidade1 = new Entidade(entidadeAtleta, null);
+                            Atleta atleta = new Atleta(nomeAtleta, cpfAtleta, entidade1, fotoAtleta, count++, posicaoAtleta, raAtleta);
+                            System.out.println("Atleta cadastrado:\n" + atleta);
                             break;
 
                         case 2:
-                            // Cadastro de Comissão Técnica
-                            System.out.println("Digite o nome da Comissão Técnica:");
-                            String nomeTecnico = teclado.nextLine();
-                            System.out.println("Digite o CPF da Comissão Técnica:");
-                            String cpfTecnico = teclado.nextLine();
-                            System.out.println("Digite a Entidade da Comissão Técnica:");
-                            String entidadeTecnico = teclado.nextLine();
-                            System.out.println("Digite o caminho da Foto da Comissão Técnica:");
-                            String fotoTecnico = teclado.nextLine();
-                            System.out.println("Digite o Cargo da Comissão Técnica:");
-                            String cargoTecnico = teclado.nextLine();
-                            System.out.println("Digite o Esporte da Comissão Técnica:");
-                            String esporteTecnico = teclado.nextLine();
+                            System.out.println("Cadastro de Comissão Técnica");
+                            System.out.println("Nome:");
+                            String nomeComissao = teclado.nextLine();
+                            System.out.println("CPF:");
+                            String cpfComissao = teclado.nextLine();
+                            System.out.println("Foto:");
+                            String fotoComissao = teclado.nextLine();
+                            System.out.println("Entidade:");
+                            String entidadeComissao = teclado.nextLine();
+                            System.out.println("Cargo:");
+                            String cargoComissao = teclado.nextLine();
+                            System.out.println("Esporte:");
+                            String esporteComissao = teclado.nextLine();
 
-                            Entidade entTecnico = new Entidade(entidadeTecnico);
-                            ComissaoTecnica comissaoTecnica = new ComissaoTecnica(nomeTecnico, cpfTecnico, entTecnico, fotoTecnico, cargoTecnico, esporteTecnico);
-                            System.out.println("\nComissão Técnica cadastrada:\n" + comissaoTecnica);
+                            Entidade entidade2 = new Entidade(entidadeComissao, null);
+                            ComissaoTecnica comissao = new ComissaoTecnica(nomeComissao, cpfComissao, entidade2, fotoComissao, cargoComissao, esporteComissao);
+                            System.out.println("Comissão Técnica cadastrada:\n" + comissao);
                             break;
 
                         case 3:
-                            // Cadastro de Arbitragem
-                            System.out.println("Digite o nome da Arbitragem:");
-                            String nomeArbitro = teclado.nextLine();
-                            System.out.println("Digite o CPF da Arbitragem:");
-                            String cpfArbitro = teclado.nextLine();
-                            System.out.println("Digite a Entidade da Arbitragem:");
-                            String entidadeArbitro = teclado.nextLine();
-                            System.out.println("Digite o caminho da Foto da Arbitragem:");
-                            String fotoArbitro = teclado.nextLine();
+                            System.out.println("Cadastro de Arbitragem");
+                            System.out.println("Nome:");
+                            String nomeArbitragem = teclado.nextLine();
+                            System.out.println("CPF:");
+                            String cpfArbitragem = teclado.nextLine();
+                            System.out.println("Foto:");
+                            String fotoArbitragem = teclado.nextLine();
+                            System.out.println("Entidade:");
+                            String entidadeArbitragem = teclado.nextLine();
+                            System.out.println("Nome da Mesa:");
+                            String mesaArbitragem = teclado.nextLine();
 
-                            System.out.println("Digite os nomes da Mesa de Arbitragem (separados por vírgula):");
-                            String nomesMesa = teclado.nextLine();
-                            ArrayList<String> nomeMesa = new ArrayList<>(Arrays.asList(nomesMesa.split(",\\s*")));
+                            ArrayList<String> nomeMesa = new ArrayList<>();
+                            nomeMesa.add(mesaArbitragem);
 
-                            Entidade entArbitro = new Entidade(entidadeArbitro);
-                            Arbitragem arbitragem = new Arbitragem(nomeArbitro, cpfArbitro, entArbitro, fotoArbitro, nomeMesa);
-                            System.out.println("\nArbitragem cadastrada:\n" + arbitragem);
+                            Entidade entidade3 = new Entidade(entidadeArbitragem, null);
+                            Arbitragem arbitragem = new Arbitragem(nomeArbitragem, cpfArbitragem, entidade3, fotoArbitragem, nomeMesa);
+                            System.out.println("Arbitragem cadastrada:\n" + arbitragem);
                             break;
+
+                        default:
+                            System.out.println("Opção inválida.");
                     }
                     break;
-				/* 
+
                 case 2:
-                    // Criar Campeonato
                     System.out.println("Qual será o formato do seu campeonato? Digite o número da sua escolha.");
                     for (int i = 0; i < tipoCamp.size(); i++) {
                         System.out.println((i + 1) + ". " + tipoCamp.get(i));
@@ -116,7 +118,7 @@ public class Main {
                             for (int k = 0; k < qntEntidadesPC; k++) {
                                 System.out.println("Qual o nome da entidade " + (k + 1) + "?");
                                 String nomeEntidade = teclado.nextLine();
-                                CampPC.addTime(new Time(new Entidade(nomeEntidade)));
+                                CampPC.addTime(new Time(new Entidade(nomeEntidade, null)));
                             }
 
                             System.out.println("A tabela de times é a seguinte: \n" + CampPC.mostrarTabela());
@@ -143,7 +145,7 @@ public class Main {
                             for (int k = 0; k < qntEntidadesFG; k++) {
                                 System.out.println("Qual o nome da entidade " + (k + 1) + "?");
                                 String nomeEntidade = teclado.nextLine();
-                                CampFG.addTime(new Time(new Entidade(nomeEntidade)));
+                                CampFG.addTime(new Time(new Entidade(nomeEntidade, null)));
                             }
 
                             System.out.println("Quantos grupos terão no campeonato " + CampFG.getNome() + "?");
@@ -157,9 +159,9 @@ public class Main {
                                 String group = teclado.nextLine();
                                 CampFG.grupos.get(k).setNome(group);
 
-                                System.out.println("Quais times você quer que esteja no grupo " + CampFG.grupos.get(k).getNome() + "?");
+                                System.out.println("Quais times você quer que estejam no grupo " + CampFG.grupos.get(k).getNome() + "?");
 
-                                ArrayList<Time> timeGrupo = new ArrayList<>();
+                                ArrayList<Time> timeGrupo = new ArrayList<Time>();
                                 ArrayList<Time> listaTimesProv = CampFG.listaTimes;
                                 for (int j = 0; j < CampFG.getQntTimes(); j++) {
                                     for (int i = 0; i < listaTimesProv.size(); i++) {
@@ -179,18 +181,19 @@ public class Main {
 
                             System.out.println("Os grupos e seus respectivos times são: \n" + CampFG.mostrarGrupos());
                             break;
+
+                        default:
+                            System.out.println("Opção inválida.");
                     }
                     break;
-*/
-                case 3:
-                    // Sair
-                    System.out.println("Saindo...");
+
+                case 0:
+                    System.out.println("Encerrando o programa.");
                     teclado.close();
-                    return;
+                    System.exit(0);
 
                 default:
-                    System.out.println("Opção inválida. Tente novamente.");
-                    break;
+                    System.out.println("Opção inválida.");
             }
         }
     }
