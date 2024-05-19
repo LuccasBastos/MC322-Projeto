@@ -287,19 +287,23 @@ public class Main {
     }
 
     private static void editarEsportes(Scanner teclado){
+        int escolhaentidade;
+        int qntEsportes;
+        String nomeEsporte
+        
         System.out.println("Qual campeonato você vai editar?");
         for (int i=0; i<campeonatosCadastrados.size(); i++){
             System.out.println(i+"-"+campeonatosCadastrados.get(i).getNome);
         }
-        escolhaCamp = teclado.nextInt();
-        camp = campeonatosCadastrados.get(escolhaCamp);
+        int escolhaCamp = teclado.nextInt();
+        Campeonato camp = campeonatosCadastrados.get(escolhaCamp);
     	teclado.nextLine();
 
         System.out.println("O que deseja fazer?");
         System.out.println("1-Adicionar esportes");
         System.out.println("2-Remover esportes");
 
-        escolhaAcao = teclado.nextInt(); 
+        int escolhaAcao = teclado.nextInt(); 
     	teclado.nextLine();
 
         switch(escolhaAcao){
@@ -317,10 +321,35 @@ public class Main {
                 
                 for(int i = 0; i < qntEsportes; i++) {
                     System.out.println("Qual o nome do esporte " + (i+1) + "?");
-                    String nomeEsporte = teclado.nextLine();
+                    nomeEsporte = teclado.nextLine();
                     Camp.getTimes().get(escolhaentidade).getEntidade().addEsporte(nomeEsporte);
                 }
                 break;
+
+            case 2:
+                System.out.println("De qual entidade serão removidos esportes?");
+                for (int i=0; i<camp.getTimes().size();i++){
+                    System.out.println(i+"-"+camp.getTimes().get(i).getEntidade().getNome());
+                }
+                escolhaentidade = teclado.nextInt(); 
+                teclado.nextLine();
+                
+                System.out.println("Quantos esportes serão removidos? ("+camp.getTimes().get(i).getEntidade().getEsportes().size()+"atualmente)");
+                qntEsportes = teclado.nextInt(); 
+                teclado.nextLine();
+                
+                for(int i = 0; i < qntEsportes; i++) {
+                    System.out.println("Qual o nome do esporte " + (i+1) + "?");
+                    System.out.println("Disponíveis: ");
+                    for (int i=0; i<camp.getTimes().get(i).getEntidade().getEsportes().size(); i++){
+                        System.out.println(camp.getTimes().get(i).getEntidade().getEsportes().get(i));
+                    }
+                    String nomeEsporte = teclado.nextLine();
+                    camp.getTimes().get(escolhaentidade).getEntidade().removeEsporte(nomeEsporte);
+                }
+                break;
+
+                
         }
     }
 
