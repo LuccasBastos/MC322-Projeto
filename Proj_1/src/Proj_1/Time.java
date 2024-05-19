@@ -52,7 +52,7 @@ public class Time {
 
     //Construtor somente com entidade
     public Time(Entidade entidade){
-        this.atletas = new ArrayList<>(
+        this.atletas = new ArrayList<>();
         this.titulares = new ArrayList<>();
         this.classificacao = 999;
         this.entidade = entidade;
