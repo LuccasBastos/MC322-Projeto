@@ -97,10 +97,13 @@ public class Main {
 
         System.out.println("Nome da nova entidade:");
         String nomeEntidade = teclado.nextLine();
-        Entidade novaEntidade = new Entidade(nomeEntidade);
+        System.out.println("Nome do responsável:");
+        String nomeResponsavel = teclado.nextLine(); // Lê apenas o nome do responsável
+        Entidade novaEntidade = new Entidade(nomeEntidade, nomeResponsavel); // Cria uma nova Entidade com nome e responsável
         entidadesCadastradas.add(novaEntidade);
         return novaEntidade;
     }
+    
 
     private static void cadastrarAtleta(Scanner teclado, Entidade entidade) {
         System.out.println("Cadastro de Atleta");
