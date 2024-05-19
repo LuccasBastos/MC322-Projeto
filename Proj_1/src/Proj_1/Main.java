@@ -338,7 +338,7 @@ public class Main {
                 escolhaentidade = teclado.nextInt(); 
                 teclado.nextLine();
                 
-                System.out.println("Quantos esportes serão removidos? ("+camp.getTimes().get(escolhaentidade).getEntidade().getEsportes().size()+"atualmente)");
+                System.out.println("Quantos esportes serão removidos? ("+camp.getTimes().get(escolhaentidade).getEntidade().getEsportes().size()+" atualmente)");
                 qntEsportes = teclado.nextInt(); 
                 teclado.nextLine();
                 
