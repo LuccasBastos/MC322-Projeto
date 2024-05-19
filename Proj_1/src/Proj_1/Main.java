@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) throws InterruptedException {
 		//variáveis:
 		String nomeCamp;
-		FaseGrupos Camp;
+		Campeonato Camp;
 		int qntEntidades;
 		int escolhaentidade;
 		int qntEsportes;
