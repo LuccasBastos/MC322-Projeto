@@ -58,7 +58,7 @@ public class Grupo {
 	}
 
 	public void setGrupo(ArrayList<Time> timeGrupo) {
-		// TODO Auto-generated method stub
-		
-	}	
+		this.timeGrp = timeGrupo;
+	}
+	
 }
