@@ -6,6 +6,22 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) throws InterruptedException {
+		//variáveis:
+		String nomeCamp;
+		FaseGrupos Camp;
+		int qntEntidades;
+		int escolhaentidade;
+		int qntEsportes;
+		int escolhatime;
+		int qntAtleta;
+		Atleta atletaaremover;
+		Atleta atletaadicionado;
+		
+		
+		
+		
+		
+		
 		Scanner teclado = new Scanner(System.in);
 		List<String> tipoCamp = new ArrayList<>(Arrays.asList("Pontos corridos", "Fase de Grupo"));
 		
@@ -20,11 +36,11 @@ public class Main {
 			case 1: // Pontos corridos
 				System.out.println("Você selecionou Pontos Corridos.\n");
 				System.out.println("Qual o nome do campeonato com formato Pontos Corridos?");
-				String nomeCamp = teclado.nextLine(); 
+				nomeCamp = teclado.nextLine(); 
 				PontosCorridos Camp = new PontosCorridos(nomeCamp);
 				
 				System.out.println("Quantas entidades de times terão no campeonato " + Camp.getNome() + "?");
-				int qntEntidades = teclado.nextInt(); 
+				qntEntidades = teclado.nextInt(); 
 				teclado.nextLine();
 				
 				for(int k = 0; k < qntEntidades; k++) {
@@ -41,11 +57,11 @@ public class Main {
 				System.out.println("Você selecionou Fase de Grupos. Para esse formato é necessário ter mais de 4 entidades inscritas no campeonato.");
 				Thread.sleep(3000);
 				System.out.println("Qual o nome do campeonato com formato Fase de Grupos?");
-				String nomeCamp = teclado.nextLine();
-				FaseGrupos Camp = new FaseGrupos(nomeCamp);
+				nomeCamp = teclado.nextLine();
+				Camp = new FaseGrupos(nomeCamp);
 				
 				System.out.println("Quantas entidades de times terão no campeonato " + Camp.getNome() + "?");
-				int qntEntidades = teclado.nextInt(); 
+				qntEntidades = teclado.nextInt(); 
 				teclado.nextLine();
 				
 				while (qntEntidades < 4) {
@@ -92,7 +108,7 @@ public class Main {
 					Camp.grupos.get(k).setGrupo(timeGrupo);
 				}
 				
-				System.out.println("Os grupos e seus respectivos times são: \n" + Camp.mostrarGrupo());
+				System.out.println("Os grupos e seus respectivos times são: \n" + Camp.mostrarGrupos());
 
 				break;
 				
@@ -107,11 +123,11 @@ public class Main {
 				for (int i=0; i<Camp.getPodio().size;i++){
 					System.out.println(i+"-"+Camp.getPodio().get(i).getNome());
 				}
-				int escolhaentidade = teclado.nextInt()-1; 
+				escolhaentidade = teclado.nextInt()-1; 
 				teclado.nextLine();
 				
 				System.out.println("Quantos esportes serão adicionados?");
-				int qntEsportes = teclado.nextInt(); 
+				qntEsportes = teclado.nextInt(); 
 				teclado.nextLine();
 				
 				for(int i = 0; i < qntEsportes; i++) {
@@ -125,11 +141,11 @@ public class Main {
 				for (int i=0; i<Camp.getPodio().size;i++){
 					System.out.println(i+"-"+Camp.getPodio().get(i).getNome());
 				}
-				int escolhaentidade = teclado.nextInt()-1; 
+				escolhaentidade = teclado.nextInt()-1; 
 				teclado.nextLine();
 				
 				System.out.println("Quantos esportes serão removidos?");
-				int qntEsportes = teclado.nextInt(); 
+				qntEsportes = teclado.nextInt(); 
 				teclado.nextLine();
 				
 				for(int i = 0; i < qntEsportes; i++) {
@@ -144,17 +160,17 @@ public class Main {
 				for (int i=0; i<Camp.getTimes().size;i++){
 					System.out.println(i+"-"+Camp.getTimes().get(i).getEntidade().getNome());
 				}
-				int escolhatime = teclado.nextInt()-1; 
+				escolhatime = teclado.nextInt()-1; 
 				teclado.nextLine();
 				
 				System.out.println("Quantos atletas serão adicionados?");
-				int qntAtleta = teclado.nextInt(); 
+			    qntAtleta = teclado.nextInt(); 
 				teclado.nextLine();
 				
 				for(int i = 0; i < qntAtleta; i++) {
 					System.out.println("Qual o nome do atleta " + (i+1) + "?");
 					String nomeAtleta = teclado.nextLine();
-					Atleta atletaadiconado = new Atleta(nomeAtleta, "000.000.000-00", Camp.getTimes().get(escolhatime).getEntidade(), "foto", Camp.getTimes().size(), "Nenhuma", "000000");
+					atletaadiconado = new Atleta(nomeAtleta, "000.000.000-00", Camp.getTimes().get(escolhatime).getEntidade(), "foto", Camp.getTimes().size(), "Nenhuma", "000000");
 					Camp.getTimes().get(escolhatime).addAtleta(atletaadicionado);
 				}
 				break;
@@ -164,17 +180,17 @@ public class Main {
 				for (int i=0; i<Camp.getTimes().size;i++){
 					System.out.println(i+"-"+Camp.getTimes().get(i).getEntidade().getNome());
 				}
-				int escolhatime = teclado.nextInt()-1; 
+				escolhatime = teclado.nextInt()-1; 
 				teclado.nextLine();
 				
 				System.out.println("Quantos atletas serão removidos?");
-				int qntAtleta = teclado.nextInt(); 
+				qntAtleta = teclado.nextInt(); 
 				teclado.nextLine();
 				
 				for(int i = 0; i < qntAtleta; i++) {
 					System.out.println("Qual o nome do atleta " + (i+1) + "?");
 					String nomeAtleta = teclado.nextLine();
-					Atleta atletaaremover = new Atleta(nomeAtleta, "000.000.000-00", Camp.getTimes().get(escolhatime).getEntidade(), "foto", Camp.getTimes().size(), "Nenhuma", "000000");
+					atletaaremover = new Atleta(nomeAtleta, "000.000.000-00", Camp.getTimes().get(escolhatime).getEntidade(), "foto", Camp.getTimes().size(), "Nenhuma", "000000");
 					Camp.getTimes().get(escolhatime).removeAtleta(atletaaaremover);
 				}
 				break;
@@ -184,17 +200,17 @@ public class Main {
 				for (int i=0; i<Camp.getTimes().size;i++){
 					System.out.println(i+"-"+Camp.getTimes().get(i).getEntidade().getNome());
 				}
-				int escolhatime = teclado.nextInt()-1; 
+				escolhatime = teclado.nextInt()-1; 
 				teclado.nextLine();
 				
 				System.out.println("Quantos atletas serão adicionados?");
-				int qntAtleta = teclado.nextInt(); 
+				qntAtleta = teclado.nextInt(); 
 				teclado.nextLine();
 				
 				for(int i = 0; i < qntAtleta; i++) {
 					System.out.println("Qual o nome do atleta " + (i+1) + "?");
 					String nomeAtleta = teclado.nextLine();
-					Atleta atletaadiconado = new Atleta(nomeAtleta, "000.000.000-00", Camp.getTimes().get(escolhatime).getEntidade(), "foto", Camp.getTimes().size(), "Nenhuma", "000000");
+					atletaadiconado = new Atleta(nomeAtleta, "000.000.000-00", Camp.getTimes().get(escolhatime).getEntidade(), "foto", Camp.getTimes().size(), "Nenhuma", "000000");
 					Camp.getTimes().get(escolhatime).addTitular(atletaadicionado);
 				}
 				break;
@@ -204,17 +220,17 @@ public class Main {
 				for (int i=0; i<Camp.getTimes().size;i++){
 					System.out.println(i+"-"+Camp.getTimes().get(i).getEntidade().getNome());
 				}
-				int escolhatime = teclado.nextInt()-1; 
+				escolhatime = teclado.nextInt()-1; 
 				teclado.nextLine();
 				
 				System.out.println("Quantos atletas serão removidos?");
-				int qntAtleta = teclado.nextInt(); 
+				qntAtleta = teclado.nextInt(); 
 				teclado.nextLine();
 				
 				for(int i = 0; i < qntAtleta; i++) {
 					System.out.println("Qual o nome do atleta " + (i+1) + "?");
 					String nomeAtleta = teclado.nextLine();
-					Atleta atletaaremover = new Atleta(nomeAtleta, "000.000.000-00", Camp.getTimes().get(escolhatime).getEntidade(), "foto", Camp.getTimes().size(), "Nenhuma", "000000");
+					atletaaremover = new Atleta(nomeAtleta, "000.000.000-00", Camp.getTimes().get(escolhatime).getEntidade(), "foto", Camp.getTimes().size(), "Nenhuma", "000000");
 					Camp.getTimes().get(escolhatime).removeTitular(atletaaaremover);
 				}
 				break;
