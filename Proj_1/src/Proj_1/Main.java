@@ -3,6 +3,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class Main {
     private static int count = 0;
     private static ArrayList<Entidade> entidadesCadastradas = new ArrayList<>();
@@ -11,20 +20,126 @@ public class Main {
 
 
     public static void main(String[] args) throws InterruptedException {
-        Scanner teclado = new Scanner(System.in);
+        JFrame janela = new JFrame("Escolha uma Opção");      // Cria uma janela com o título "Escolha uma Opção"
+
+       /* JLabel label = new JLabel("Bem-vindo ao Organizador de Torneios!");     // Cria um label com o texto "Bem-vindo ao Organizador de Torneios"
+        label.setBounds(50, 50, 500, 30);    // Define a posição e o tamanho do label
+
+        JTextField campo = new JTextField();     // Cria um campo de texto para input, se quiser uma caixinha de texto com mais de 1 linha tem q usar JtextArea
+        campo.setBounds(50, 100, 200, 30);   // Define a posição e o tamanho do campo de texto
+
+        JButton b_escolha = new JButton("Clique aqui");     // Cria um botão com o texto "Clique aqui"
+        b_escolha.setBounds(0, 0, 200, 30);    // Define a posição e o tamanho do botão
+        b_escolha.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int escolha = 1;
+                System.out.println("Voce escolheu %d", escolha);   // Nesse caso, printa a escolha no console. Pra mudar oq acontece so mexer nessa funcao actionPerformed
+            }
+        }); */
+
+        JButton b1 = new JButton("1. Cadastro");     // Cria um botão com o texto "1. Cadastro"
+        //b1.setBounds(0, 0, 200, 30);    // Define a posição e o tamanho do botão
+        b1.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int escolha = 1;
+                System.out.printf("Voce escolheu %d\n", escolha);   // Nesse caso, printa a escolha no console. Pra mudar oq acontece so mexer nessa funcao actionPerformed
+            }
+        });
+        
+        JButton b2 = new JButton("2. Criar Campeonato");     // Cria um botão com o texto "2. Criar Campeonato"
+        b2.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int escolha = 2;
+                System.out.printf("Voce escolheu %d\n", escolha);   // Nesse caso, printa a escolha no console. Pra mudar oq acontece so mexer nessa funcao actionPerformed
+            }
+        });
+
+        JButton b3 = new JButton("3. Listar Entidades Cadastradas");     // Cria um botão com o texto "3. Listar Entidades Cadastradas"
+        b3.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int escolha = 3;
+                System.out.printf("Voce escolheu %d\n", escolha);   // Nesse caso, printa a escolha no console. Pra mudar oq acontece so mexer nessa funcao actionPerformed
+            }
+        });
+        
+        JButton b4 = new JButton("4. Listar Pessoas Cadastradas");     // Cria um botão com o texto "4. Listar Pessoas Cadastradas"
+        b4.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int escolha = 4;
+                System.out.printf("Voce escolheu %d\n", escolha);   // Nesse caso, printa a escolha no console. Pra mudar oq acontece so mexer nessa funcao actionPerformed
+            }
+        });
+
+        JButton b5 = new JButton("5. Editar Esportes");     // Cria um botão com o texto "5. Editar Esportes"
+        b5.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int escolha = 5;
+                System.out.printf("Voce escolheu %d\n", escolha);   // Nesse caso, printa a escolha no console. Pra mudar oq acontece so mexer nessa funcao actionPerformed
+            }
+        });
+
+        JButton b6 = new JButton("6. Editar Atletas");     // Cria um botão com o texto "6. Editar Atletas"
+        b6.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int escolha = 6;
+                System.out.printf("Voce escolheu %d\n", escolha);   // Nesse caso, printa a escolha no console. Pra mudar oq acontece so mexer nessa funcao actionPerformed
+            }
+        });
+
+        JButton b0 = new JButton("0. Sair");     // Cria um botão com o texto "6. Editar Atletas"
+        b0.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int escolha = 0;
+                System.out.printf("Voce escolheu %d\n", escolha);   // Nesse caso, printa a escolha no console. Pra mudar oq acontece so mexer nessa funcao actionPerformed
+            }
+        });
+
+        janela.setSize(800, 600);        // Define o tamanho da janela
+        janela.setLayout(new GridLayout(4, 2, 5, 5));     // Define o layout da janela como Grid(os botoes ocupam td a janela, tem varios tipos de layout, se quiser mudar so trocar o GridLayout() por outro tipo de layout)
+        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Garante que o programa encerre ao fechar a janela ao clicar no botão de fechar
+        janela.setVisible(true);        // Torna a janela visível
+
+        janela.add(b1);      // Adiciona o botão 1 à janela
+        janela.add(b2);      // Adiciona o botão 2 à janela
+        janela.add(b3);      // Adiciona o botão 3 à janela
+        janela.add(b4);      // Adiciona o botão 4 à janela
+        janela.add(b5);      // Adiciona o botão 5 à janela
+        janela.add(b6);      // Adiciona o botão 6 à janela
+        janela.add(b0);      // Adiciona o botão 0 à janela
+        //janela.add(label);      // Adiciona o label à janela
+        //janela.add(campo);      // Adiciona o campo de texto à janela
+
+
+        //Scanner teclado = new Scanner(System.in);
         List<String> tipoCamp = new ArrayList<>(Arrays.asList("Pontos corridos", "Fase de Grupo"));
 
         while (true) {
-            System.out.println("Escolha uma opção:");
-            System.out.println("1. Cadastro");
-            System.out.println("2. Criar Campeonato");
-            System.out.println("3. Listar Entidades Cadastradas");
-            System.out.println("4. Listar Pessoas Cadastradas");
-            System.out.println("5. Editar Esportes");
-            System.out.println("6. Editar Atletas");
-            System.out.println("0. Sair");
-            int escolha = teclado.nextInt();
-            teclado.nextLine();
+            //System.out.println("Escolha uma opção:");
+            //System.out.println("1. Cadastro");
+            //System.out.println("2. Criar Campeonato");
+            //System.out.println("3. Listar Entidades Cadastradas");
+           // System.out.println("4. Listar Pessoas Cadastradas");
+            //System.out.println("5. Editar Esportes");
+            //System.out.println("6. Editar Atletas");
+            //System.out.println("0. Sair");
+            //int escolha = teclado.nextInt();
+            //teclado.nextLine();
 
             switch (escolha) {
                 case 1:
