@@ -70,10 +70,12 @@ public class Main {
                 
                 JTextField campoCPF = new JTextField("(Digite seu CPF)");
                 campoCPF.setBounds(80, 70, 200, 20);
+                //adicionar a validação do CPF aqui e dar throw na exceção customizada
                 janCadastro.add(campoCPF);
                 
                 JTextField campoEntidade = new JTextField("(Digite sua entidade)");
                 campoEntidade.setBounds(80, 100, 200, 20);
+                //adicionar a verificação da entidade aqui e dar throw na exceção customizada
                 janCadastro.add(campoEntidade);
                 
                 JTextField campoFoto = new JTextField("(Insira sua foto)");
