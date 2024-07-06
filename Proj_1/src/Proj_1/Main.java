@@ -15,10 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JTextField;
 
-import Proj_1.ExcecaoCPF;
-import Proj_1.ExcecaoEntidade;
-import Proj_1.ValidaCPF;
-
 public class Main {
     private static int count = 0;
     private static ArrayList<Entidade> entidadesCadastradas = new ArrayList<>();
