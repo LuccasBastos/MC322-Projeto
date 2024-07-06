@@ -15,6 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JTextField;
 
+import Proj_1.ExcecaoCPF;
+import Proj_1.ExcecaoEntidade;
+import Proj_1.ValidaCPF;
+
 public class Main {
     private static int count = 0;
     private static ArrayList<Entidade> entidadesCadastradas = new ArrayList<>();
@@ -70,12 +74,10 @@ public class Main {
                 
                 JTextField campoCPF = new JTextField("(Digite seu CPF)");
                 campoCPF.setBounds(80, 70, 200, 20);
-                //adicionar a validação do CPF aqui e dar throw na exceção customizada
                 janCadastro.add(campoCPF);
                 
                 JTextField campoEntidade = new JTextField("(Digite sua entidade)");
                 campoEntidade.setBounds(80, 100, 200, 20);
-                //adicionar a verificação da entidade aqui e dar throw na exceção customizada
                 janCadastro.add(campoEntidade);
                 
                 JTextField campoFoto = new JTextField("(Insira sua foto)");
@@ -95,26 +97,46 @@ public class Main {
                 bCadastro.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        String nome = campoNome.getText();
-                        A1.setNome(nome);
-                        System.out.printf("Nome cadastrado: %s\n", nome);
-                        
-                        String cpf = campoCPF.getText();
-                        A1.setCpf(cpf);
-                        System.out.printf("CPF: %s\n", cpf);
-                        
-                        String entidade = campoEntidade.getText();
-                        A1.setEntidade(null);
-                        System.out.printf("Entidade: %s\n", entidade);
-                        
-                        String RA = campoRA.getText();
-                        A1.setRa(RA);
-                        System.out.printf("RA: %s\n", RA);
-                        
-                        String posicao = campoPos.getText();
-                        A1.setPosicao(posicao);
-                        System.out.printf("Posição: %s\n", posicao);
-                        janCadastro.dispose(); // Fecha a janela de cadastro após o cadastro
+                        try{
+                            String nome = campoNome.getText();
+                            A1.setNome(nome);
+                            System.out.printf("Nome cadastrado: %s\n", nome);
+                            
+                            String cpf = campoCPF.getText();
+                            if(!ValidaCPF.isValidCpf(cpf)){         //se cpf NÃO é valido, lança exceção
+                                ExcecaoCPF exCPF = new ExcecaoCPF();
+                                throw exCPF;
+                            }
+                            A1.setCpf(cpf);
+                            System.out.printf("CPF: %s\n", cpf);
+                            
+                            String entidade = campoEntidade.getText();
+                            if(!entidadesCadastradas.contains(entidade)){       //se entidade não estiver cadastrada, lança exceção
+                                ExcecaoEntidade exEnt = new ExcecaoEntidade();
+                                throw exEnt;
+                            }
+                            A1.setEntidade(null);
+                            System.out.printf("Entidade: %s\n", entidade);
+                            
+                            String RA = campoRA.getText();
+                            A1.setRa(RA);
+                            System.out.printf("RA: %s\n", RA);
+                            
+                            String posicao = campoPos.getText();
+                            A1.setPosicao(posicao);
+                            System.out.printf("Posição: %s\n", posicao);
+                            janCadastro.dispose(); // Fecha a janela de cadastro após o cadastro
+                        }
+                        catch(ExcecaoCPF exc){
+                            //O que deve ser feito quando um cpf inválido for detectado?
+
+                            System.err.println(exc);
+                        }
+                        catch(ExcecaoEntidade exc){
+                            //O que deve ser feito quando uma entidade não cadastrada for detectada?
+
+                            System.err.println(exc);
+                        }
                     }
                 });
                 janCadastro.add(bCadastro);

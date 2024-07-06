@@ -1,7 +1,7 @@
 package Proj_1;
 
 public class ValidaCPF {
-    public boolean isValidCpf(String cpf){
+    public static boolean isValidCpf(String cpf){
         boolean igual = true;
         int[] num_cpf = new int[11];
         String new_cpf = cpf;
