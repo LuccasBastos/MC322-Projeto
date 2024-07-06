@@ -1,16 +1,19 @@
+package Proj_1;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JTextField;
-
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Main {
     private static int count = 0;
@@ -21,13 +24,18 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         JFrame janela = new JFrame("Escolha uma Opção");      // Cria uma janela com o título "Escolha uma Opção"
-
-       /* JLabel label = new JLabel("Bem-vindo ao Organizador de Torneios!");     // Cria um label com o texto "Bem-vindo ao Organizador de Torneios"
+        janela.setSize(600, 400);
+        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        janela.setLayout(null);
+        
+        JLabel label = new JLabel("Bem-vindo ao Organizador de Torneios!");     // Cria um label com o texto "Bem-vindo ao Organizador de Torneios"
         label.setBounds(50, 50, 500, 30);    // Define a posição e o tamanho do label
-
+        //janela.add(label);
+        
         JTextField campo = new JTextField();     // Cria um campo de texto para input, se quiser uma caixinha de texto com mais de 1 linha tem q usar JtextArea
         campo.setBounds(50, 100, 200, 30);   // Define a posição e o tamanho do campo de texto
-
+        //janela.add(campo);
+        
         JButton b_escolha = new JButton("Clique aqui");     // Cria um botão com o texto "Clique aqui"
         b_escolha.setBounds(0, 0, 200, 30);    // Define a posição e o tamanho do botão
         b_escolha.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
@@ -35,22 +43,139 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int escolha = 1;
-                System.out.println("Voce escolheu %d", escolha);   // Nesse caso, printa a escolha no console. Pra mudar oq acontece so mexer nessa funcao actionPerformed
-            }
-        }); */
-
-        JButton b1 = new JButton("1. Cadastro");     // Cria um botão com o texto "1. Cadastro"
-        //b1.setBounds(0, 0, 200, 30);    // Define a posição e o tamanho do botão
-        b1.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int escolha = 1;
-                System.out.printf("Voce escolheu %d\n", escolha);   // Nesse caso, printa a escolha no console. Pra mudar oq acontece so mexer nessa funcao actionPerformed
+                System.out.printf("Voce escolheu %d", escolha);   // Nesse caso, printa a escolha no console. Pra mudar oq acontece so mexer nessa funcao actionPerformed
             }
         });
+        //janela.add(b_escolha);
+
+        JButton b1 = new JButton("Cadastro de Atleta");     // Cria um botão com o texto "1. Cadastro"
+        b1.setBounds(50, 200, 200, 30);    // Define a posição e o tamanho do botão
+        b1.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	Atleta A1 = new Atleta("", "", null, "");
+            	
+                JFrame janCadastro = new JFrame("Realize o cadastro do atleta");
+                janCadastro.setSize(400, 300);
+                janCadastro.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                janCadastro.setLayout(null);
+
+                JLabel labelCadastro = new JLabel("Cadastro de Participantes:");
+                labelCadastro.setBounds(80, 20, 200, 15);
+                janCadastro.add(labelCadastro);
+
+                JTextField campoNome = new JTextField("(Digite seu nome)");
+                campoNome.setBounds(80, 40, 200, 20);
+                janCadastro.add(campoNome);
+                
+                JTextField campoCPF = new JTextField("(Digite seu CPF)");
+                campoCPF.setBounds(80, 70, 200, 20);
+                janCadastro.add(campoCPF);
+                
+                JTextField campoEntidade = new JTextField("(Digite sua entidade)");
+                campoEntidade.setBounds(80, 100, 200, 20);
+                janCadastro.add(campoEntidade);
+                
+                JTextField campoFoto = new JTextField("(Insira sua foto)");
+                campoFoto.setBounds(80, 130, 200, 20);
+                janCadastro.add(campoFoto);
+                
+                JTextField campoRA = new JTextField("(Digite seu RA)");
+                campoRA.setBounds(80, 160, 200, 20);
+                janCadastro.add(campoRA);
+                
+                JTextField campoPos = new JTextField("(Digite sua posição)");
+                campoPos.setBounds(80, 190, 200, 20);
+                janCadastro.add(campoPos);
+
+                JButton bCadastro = new JButton("Cadastrar");
+                bCadastro.setBounds(200, 215, 120, 30);
+                bCadastro.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        String nome = campoNome.getText();
+                        A1.setNome(nome);
+                        System.out.printf("Nome cadastrado: %s\n", nome);
+                        
+                        String cpf = campoCPF.getText();
+                        A1.setCpf(cpf);
+                        System.out.printf("CPF: %s\n", cpf);
+                        
+                        String entidade = campoEntidade.getText();
+                        A1.setEntidade(null);
+                        System.out.printf("Entidade: %s\n", entidade);
+                        
+                        String RA = campoRA.getText();
+                        A1.setRa(RA);
+                        System.out.printf("RA: %s\n", RA);
+                        
+                        String posicao = campoPos.getText();
+                        A1.setPosicao(posicao);
+                        System.out.printf("Posição: %s\n", posicao);
+                        janCadastro.dispose(); // Fecha a janela de cadastro após o cadastro
+                    }
+                });
+                janCadastro.add(bCadastro);
+                janCadastro.setVisible(true); // Torna a janela de cadastro visível
+            }
+        });
+        janela.add(b1);
         
-        JButton b2 = new JButton("2. Criar Campeonato");     // Cria um botão com o texto "2. Criar Campeonato"
+        DefaultListModel<String> listModel = new DefaultListModel<String>();
+        listModel.addElement("Futsal");
+        listModel.addElement("Vôlei");
+        listModel.addElement("Basquete");
+        listModel.addElement("Handbol");
+        
+        JButton b2 = new JButton("Cadastro de Entidade");     // Cria um botão com o texto "1. Cadastro"
+        b2.setBounds(50, 200, 200, 30);    // Define a posição e o tamanho do botão
+        b2.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	Entidade E1 = new Entidade("");
+            	
+                JFrame janCadastroEnt = new JFrame("Realize o cadastro da entidade");
+                janCadastroEnt.setSize(400, 300);
+                janCadastroEnt.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                janCadastroEnt.setLayout(null);
+
+                JLabel labelCadastro = new JLabel("Cadastro de Entidades:");
+                labelCadastro.setBounds(80, 20, 200, 15);
+                janCadastroEnt.add(labelCadastro);
+
+                JTextField campoNomeEnt = new JTextField("(Digite o nome)");
+                campoNomeEnt.setBounds(80, 40, 200, 20);
+                janCadastroEnt.add(campoNomeEnt);
+
+                JList<String> campoEsp = new JList<String>(listModel);
+                campoEsp.setBounds(80, 70, 200, 80);
+                janCadastroEnt.add(campoEsp);
+                
+                JTextField campoResp = new JTextField("(Responsável da entidade)");
+                campoResp.setBounds(80, 170, 200, 20);
+                janCadastroEnt.add(campoResp);
+               
+                JButton bCadastro = new JButton("Cadastrar Entidade");
+                bCadastro.setBounds(200, 215, 160, 30);
+                bCadastro.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        String nomeEnt = campoNomeEnt.getText();
+                        E1.setNome(nomeEnt);
+                        System.out.printf("Nome da entidade: %s\n", nomeEnt);
+                                             
+                        String resp = campoResp.getText();
+                        System.out.printf("Responsável: %s\n", resp);
+                        janCadastroEnt.dispose(); // Fecha a janela de cadastro após o cadastro
+                    }
+                });
+                janCadastroEnt.add(bCadastro);
+                janCadastroEnt.setVisible(true); // Torna a janela de cadastro visível
+            }
+        });
+        janela.add(b2);
+        
+        /*JButton b2 = new JButton("2. Criar Campeonato");     // Cria um botão com o texto "2. Criar Campeonato"
         b2.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
             
             @Override
@@ -98,7 +223,7 @@ public class Main {
                 int escolha = 6;
                 System.out.printf("Voce escolheu %d\n", escolha);   // Nesse caso, printa a escolha no console. Pra mudar oq acontece so mexer nessa funcao actionPerformed
             }
-        });
+        });*/
 
         JButton b0 = new JButton("0. Sair");     // Cria um botão com o texto "6. Editar Atletas"
         b0.addActionListener(new ActionListener() {      // Faz algo acontecer quando clicar no botão
@@ -117,11 +242,11 @@ public class Main {
 
         janela.add(b1);      // Adiciona o botão 1 à janela
         janela.add(b2);      // Adiciona o botão 2 à janela
-        janela.add(b3);      // Adiciona o botão 3 à janela
+        /*janela.add(b3);      // Adiciona o botão 3 à janela
         janela.add(b4);      // Adiciona o botão 4 à janela
         janela.add(b5);      // Adiciona o botão 5 à janela
         janela.add(b6);      // Adiciona o botão 6 à janela
-        janela.add(b0);      // Adiciona o botão 0 à janela
+        janela.add(b0);*/      // Adiciona o botão 0 à janela
         //janela.add(label);      // Adiciona o label à janela
         //janela.add(campo);      // Adiciona o campo de texto à janela
 
@@ -129,19 +254,19 @@ public class Main {
         //Scanner teclado = new Scanner(System.in);
         List<String> tipoCamp = new ArrayList<>(Arrays.asList("Pontos corridos", "Fase de Grupo"));
 
-        while (true) {
+        /*while (true) {
             //System.out.println("Escolha uma opção:");
             //System.out.println("1. Cadastro");
             //System.out.println("2. Criar Campeonato");
             //System.out.println("3. Listar Entidades Cadastradas");
-           // System.out.println("4. Listar Pessoas Cadastradas");
+            //System.out.println("4. Listar Pessoas Cadastradas");
             //System.out.println("5. Editar Esportes");
             //System.out.println("6. Editar Atletas");
             //System.out.println("0. Sair");
             //int escolha = teclado.nextInt();
             //teclado.nextLine();
 
-            switch (escolha) {
+			switch (escolha) {
                 case 1:
                     System.out.println("Escolha o tipo de cadastro:");
                     System.out.println("1. Atleta");
@@ -195,7 +320,7 @@ public class Main {
                 default:
                     System.out.println("Opção inválida.");
             }
-        }
+        }*/
     }
 
     private static Entidade escolherOuCriarEntidade(Scanner teclado) {

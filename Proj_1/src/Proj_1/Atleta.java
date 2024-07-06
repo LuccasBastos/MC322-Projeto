@@ -4,6 +4,10 @@ public class Atleta extends Pessoa {
     private String posicao;
     private String ra;
     
+    public Atleta(String nome, String cpf, Entidade entidade, String foto) {
+    	super(nome, cpf, entidade, foto);
+    }
+    
     public Atleta(String nome, String cpf, Entidade entidade, String foto, int id, String posicao, String ra) {
         super(nome, cpf, entidade, foto);
         this.id = id;
@@ -12,18 +16,30 @@ public class Atleta extends Pessoa {
     }
     
     public int getId() {
-        return id;
-    }
-    
-    public String getPosicao() {
-        return posicao;
-    }
-    
-    public String getRa() {
-        return ra;
-    }
-    
-    @Override
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getPosicao() {
+		return posicao;
+	}
+
+	public void setPosicao(String posicao) {
+		this.posicao = posicao;
+	}
+
+	public String getRa() {
+		return ra;
+	}
+
+	public void setRa(String ra) {
+		this.ra = ra;
+	}
+
+	@Override
     public String obterNome() {
         return nome;
     }
