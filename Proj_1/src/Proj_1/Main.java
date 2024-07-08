@@ -16,17 +16,25 @@ import javax.swing.JList;
 import javax.swing.JTextField;
 
 public class Main {
+    /*
     private static int count = 0;
     private static ArrayList<Entidade> entidadesCadastradas = new ArrayList<>();
     private static ArrayList<Pessoa> pessoasCadastradas = new ArrayList<>();
     private static ArrayList<Campeonato> campeonatosCadastrados = new ArrayList<>();
+    */
 
 
     public static void main(String[] args) throws InterruptedException {
+        ArrayList<Entidade> entidadesCadastradas = new ArrayList<>();
+        ArrayList<Atleta> atletasCadastrados = new ArrayList<>();
+
+
+
+        
         JFrame janela = new JFrame("Escolha uma Opção");      // Cria uma janela com o título "Escolha uma Opção"
         janela.setSize(600, 400);
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        janela.setLayout(null);
+        janela.setLayout(new GridLayout(4,2,2,5));
         
         JLabel label = new JLabel("Bem-vindo ao Organizador de Torneios!");     // Cria um label com o texto "Bem-vindo ao Organizador de Torneios"
         label.setBounds(50, 50, 500, 30);    // Define a posição e o tamanho do label
@@ -106,13 +114,23 @@ public class Main {
                             A1.setCpf(cpf);
                             System.out.printf("CPF: %s\n", cpf);
                             
-                            String entidade = campoEntidade.getText();
-                            if(!entidadesCadastradas.contains(entidade)){       //se entidade não estiver cadastrada, lança exceção
+                            String nomeentidade = campoEntidade.getText();
+                            boolean verify = true;
+                            int i;
+                            
+                            for (i=0; i>entidadesCadastradas.size(); i++){
+                                if(nomeentidade == entidadesCadastradas.get(i).getNome()){       //se entidade não estiver cadastrada, lança exceção
+                                    verify = true;
+                                    break;
+                                }
+                            }
+                            if (!verify){
                                 ExcecaoEntidade exEnt = new ExcecaoEntidade();
                                 throw exEnt;
                             }
-                            A1.setEntidade(null);
-                            System.out.printf("Entidade: %s\n", entidade);
+
+                            A1.setEntidade(entidadesCadastradas.get(i));
+                            System.out.printf("Entidade: %s\n", nomeentidade);
                             
                             String RA = campoRA.getText();
                             A1.setRa(RA);
@@ -121,6 +139,8 @@ public class Main {
                             String posicao = campoPos.getText();
                             A1.setPosicao(posicao);
                             System.out.printf("Posição: %s\n", posicao);
+
+                            atletasCadastrados.add(A1);
                             janCadastro.dispose(); // Fecha a janela de cadastro após o cadastro
                         }
                         catch(ExcecaoCPF exc){
@@ -185,7 +205,9 @@ public class Main {
                         System.out.printf("Nome da entidade: %s\n", nomeEnt);
                                              
                         String resp = campoResp.getText();
+                        E1.setRespNome(resp);
                         System.out.printf("Responsável: %s\n", resp);
+                        entidadesCadastradas.add(E1);
                         janCadastroEnt.dispose(); // Fecha a janela de cadastro após o cadastro
                     }
                 });
@@ -272,7 +294,7 @@ public class Main {
 
 
         //Scanner teclado = new Scanner(System.in);
-        List<String> tipoCamp = new ArrayList<>(Arrays.asList("Pontos corridos", "Fase de Grupo"));
+        //List<String> tipoCamp = new ArrayList<>(Arrays.asList("Pontos corridos", "Fase de Grupo"));
 
         /*while (true) {
             //System.out.println("Escolha uma opção:");
