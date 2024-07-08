@@ -115,11 +115,11 @@ public class Main {
                             System.out.printf("CPF: %s\n", cpf);
                             
                             String nomeentidade = campoEntidade.getText();
-                            boolean verify = true;
+                            boolean verify = false;
                             int i;
                             
-                            for (i=0; i>entidadesCadastradas.size(); i++){
-                                if(nomeentidade == entidadesCadastradas.get(i).getNome()){       //se entidade não estiver cadastrada, lança exceção
+                            for (i=0; i<entidadesCadastradas.size(); i++){
+                                if(nomeentidade.equals(entidadesCadastradas.get(i).getNome())){       //se entidade não estiver cadastrada, lança exceção
                                     verify = true;
                                     break;
                                 }
