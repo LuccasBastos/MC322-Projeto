@@ -364,7 +364,7 @@ public class Main {
             }
         }*/
     }
-
+    /*
     private static Entidade escolherOuCriarEntidade(Scanner teclado) {
         System.out.println("Escolha uma opção:");
         System.out.println("1. Escolher uma entidade existente");
@@ -761,5 +761,5 @@ public class Main {
                 
         }
     }
-    
+    */
 }
