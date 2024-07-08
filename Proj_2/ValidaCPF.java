@@ -1,4 +1,4 @@
-package Proj_1;
+package Proj_2;
 
 public class ValidaCPF {
     public static boolean isValidCpf(String cpf){
