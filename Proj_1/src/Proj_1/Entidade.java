@@ -53,6 +53,10 @@ public class Entidade {
         this.nome = nome;
     }
 
+    public void setRespNome(String respNome) {
+        this.respNome = respNome;
+    }
+
     // Métodos
     public boolean addEsporte(String esporte) {
         if (esportes.contains(esporte)) {
